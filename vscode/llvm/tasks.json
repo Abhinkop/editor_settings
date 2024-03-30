@@ -51,6 +51,21 @@
 			}
 		},
 		{
+			"label": "Install",
+			"type": "shell",
+			"command": "ninja",
+			"args": [
+				"install"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/build"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
 			"label": "Clean",
 			"type": "shell",
 			"command": "ninja clean",

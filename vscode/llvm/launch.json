@@ -5,11 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Attach",
-            "type": "cppdbg",
-            "request": "attach",
-            "program": "enter program name, for example ${workspaceFolder}/a.out",
-            "MIMode": "gdb",
+            "name": "(lldb) clang",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/clang",
+            "args": [
+                "--version"
+            ],
+            "stopAtEntry": true,
+            "MIMode": "lldb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -21,8 +25,32 @@
                     "text": "-gdb-set disassembly-flavor intel",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb) opt",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/opt",
+            "args": [
+                "--version"
+            ],
+            "stopAtEntry": true,
+            "MIMode": "lldb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "cwd": "${workspaceFolder}"
         }
-
     ]
 }
